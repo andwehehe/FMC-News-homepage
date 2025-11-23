@@ -2,30 +2,39 @@
 
  function WhatsNew() {
 
+  const whatsNewSectionInfos = [
+    {
+      title: "Hydrogen vs. Electric Cars",
+      description: "Will hydrogen-fueled cars ever catch up to  EV's?"
+    },
+    {
+      title: "The Downsides of AI Artistry",
+      description: "What are the possible adverese effects of on-demand AI image generation?"
+    },
+    {
+      title: "Is VC Funding Drying Up?",
+      description: "Private funding by VC firms is down 50% YOY. We take a look at what that means."
+    }
+  ]
+
   return(
     <section className={styles.whatsNew}>
-      <h2>NEW</h2>
-      <article className={styles.newContent1}>
-        <h3>Hydrogen vs. Electric Cars</h3>
-        <p>Will hydrogen-fueled cars ever catch up to  EV's?</p>
-      </article>
+      <h2 className={styles.newItems}>NEW</h2>
+      {
+        whatsNewSectionInfos.map((item, index) => {
 
-      <hr />
+          const { title, description } = item;
 
-      <article className={styles.newContent2}>
-        <h3>The downside of AI Artistry</h3>
-        <p>What are the possible adverese effects of on-demand AI image generation?</p>
-      </article>
+          return(
+            <article key={index}>
+              <h3 className={styles.newTopicTitle}>{title}</h3>
+              <p className={styles.newTopicDescription}>{description}</p>
+              {index < whatsNewSectionInfos.length - 1 && <hr />}
+            </article>
+          );
 
-      <hr />
-
-      <article className={styles.newContent3}>
-        <h3>Is VC Funding Drying Up?</h3>
-        <p>
-          Private funding by VC firms is down 50% YOY.
-          We take a look at what that means.
-        </p>
-      </article>
+        })
+      }
     </section>
   );
  }

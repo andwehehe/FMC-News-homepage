@@ -2,20 +2,42 @@
   display: flex;
   flex-direction: column;
   gap: 1.7rem;
-  padding: 1.5rem;
+  padding-inline: 1.5rem;
+  padding-block: clamp(1.5rem, 3vw, 2rem);
   background-color: var(--very-dark-blue);
   line-height: 1.5;
 }
 
-h2 {
+.newItems {
+  font-size: 2rem;
   color: var(--soft-orange);
 }
 
-h3 {
+.newTopicTitle {
+  font-size: clamp(1.22rem, 3vw, 1.3rem);
   color: var(--off-white);
 }
 
-p {
-  font-size: 0.9rem;
+.newTopicDescription {
+  font-size: clamp(0.84rem, 3.9vw,  0.97rem);
   color: var(--grayish-blue);
+  line-height: 1.8;
+}
+
+hr {
+  margin-block-start: 1.7rem;
+  border: none;
+  border-top: solid 1px var(--dark-grayish-blue);
+}
+
+@media (min-width: 64rem) {
+  .whatsNew {
+    max-width: 22.5rem;
+  }
+}
+
+/* Hover Effects */
+.newTopicTitle:hover {
+  cursor: pointer;
+  color: var(--soft-orange);
 }

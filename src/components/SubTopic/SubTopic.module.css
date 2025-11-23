@@ -1,0 +1,38 @@
+.subTopicsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(2.5rem, 5vw, 3.5rem);
+  margin-block-start: 4rem;
+}
+
+.subTopic {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 21.4375rem;
+}
+
+.subTopic img {
+  width: 6.3rem;
+}
+
+.subTopicInfos h2 {
+  font-size: 2rem;
+  color: var(--soft-red);
+}
+
+.subTopicTitle {
+  font-weight: var(--font-weight-extra-bold);
+  margin-block: 0.5rem;
+}
+
+.subTopicDescription {
+  color: var(--dark-grayish-blue);
+  line-height: 1.5;
+}
+
+/* Hover effects */
+.subTopicTitle:hover {
+  cursor: pointer;
+  color: var(--soft-red);
+}

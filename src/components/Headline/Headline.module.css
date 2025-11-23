@@ -5,12 +5,11 @@
   justify-content: center;
   gap: 1.5rem;
   width: 100%;
-  margin-block-start: 2rem;
-  max-width: 30rem;
+  max-width: 35rem;
 }
 
 .headlineTitle {
-  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 4vw, 3.65rem);
   font-weight: var(--font-weight-extra-bold);
   color: var(--very-dark-blue);
 }
@@ -21,15 +20,15 @@
 
 .headlineInfo {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 1.5rem;
-  width: 100%;
+  padding-block-end: 1rem;
 }
 
 .headlineInfo p {
   font-size: 0.95rem;
   color: var(--dark-grayish-blue);
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 .headlineInfoContainer {
@@ -43,6 +42,33 @@
   color: var(--very-dark-blue);
   padding: 1rem 2.2rem;
   border: none;
+  width: max-content;
   background-color: var(--soft-red);
   letter-spacing: 0.2rem;
+}
+
+@media (min-width: 64rem) {
+  .headlineInfoContainer {
+    flex-wrap: nowrap;
+  }
+
+  .headline {
+    max-width: 50rem;
+  }
+
+  .headlineTitle {
+    line-height: 1;
+  }
+
+  .headlineInfo {
+    gap: 1rem;
+    max-width: 22rem;
+  }
+}
+
+/* Hover Effects */
+.headlineInfo button:hover {
+  cursor: pointer;
+  color: var(--off-white);
+  background-color: var(--very-dark-blue);
 }

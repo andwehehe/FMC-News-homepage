@@ -1,8 +1,33 @@
 
+import { useState, useEffect } from 'react';
 import styles from './Headline.module.css';
-import headlineImg from '/src/assets/images/image-web-3-mobile.jpg';
+import headlineImgMobile from '../../assets/images/image-web-3-mobile.jpg';
+import headlineImgDesktop from '../../assets/images/image-web-3-desktop.jpg';
 
-function Headline() {
+function Headline({ setIsDesktop }) {
+
+  const getInitialImg = () => {
+    return window.matchMedia("(min-width: 1024px)").matches ? headlineImgDesktop : headlineImgMobile;
+  }
+
+  const [ headlineImg, setHeadlineImg ] = useState(getInitialImg);
+
+  const handleResize = () => {
+    if(window.matchMedia("(min-width: 1024px)").matches) {
+      setHeadlineImg(headlineImgDesktop);
+      setIsDesktop(true);
+    } else {
+      setHeadlineImg(headlineImgMobile);
+      setIsDesktop(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return() => {
+      window.removeEventListener('resize', handleResize);
+    };
+  })
 
   return(
     <section className={styles.headline}>

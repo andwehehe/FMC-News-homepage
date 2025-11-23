@@ -2,10 +2,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-block-start: 1rem;
   width: 100%;
-  max-width: 30rem;
+  max-width: 35rem;
 }
 
 .logo {
-  width: 2.5rem;
+  width: clamp(2.5rem, 5vw, 4rem);
+}
+
+.navList {
+  color: var(--dark-grayish-blue);
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+@media (min-width: 64rem) {
+  .heading {
+    max-width: clamp(73rem, 50vw, 74.5rem);
+  }
+}
+
+/* Hover Effects */
+.navList li:hover {
+  cursor: pointer;
+  color: var(--soft-red);
+}
+
+.menu:hover {
+  cursor: pointer;
 }
